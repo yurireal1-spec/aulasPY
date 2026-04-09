@@ -36,4 +36,4 @@ with open('resultado_final.json', 'w', encoding='utf-8') as f_out:
     json.dump(dados_agrupados, f_out, indent=4, ensure_ascii=False)
 
 print(f"Sucesso! {len(dados_agrupados)} arquivos foram agrupados em 'resultado_final.json'.")
-print(dados_agrupados)git
+print(dados_agrupados)
