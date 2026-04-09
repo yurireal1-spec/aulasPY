@@ -3,7 +3,7 @@ import json
 
 # 1. Definição da origem
 # Usamos o caminho absoluto para garantir que o script saiba exatamente onde começar.
-diretorio_raiz = 'C:/Users/nicol/Downloads' 
+diretorio_raiz = 'C:/Users/LabInfo/Desktop/Linux_Pratica' 
 arquivos_csv = []  # Lista que servirá como nosso "banco de dados" temporário.
 
 """
@@ -24,7 +24,7 @@ for rota, pastas, arquivos in os.walk(diretorio_raiz):
         # Filtro de Extensão:
         # O endswith() funciona como um filtro lógico (booleano).
         # Adicionei o .lower() para garantir que ele encontre tanto ".csv" quanto ".CSV".
-        if nome_arquivo.lower().endswith(".csv"):
+        if nome_arquivo.lower().endswith(".txt"):
             
             # Montagem do Caminho (Path Joining):
             # Não concatenamos strings com + (ex: rota + nome_arquivo) porque o os.path.join
@@ -38,8 +38,11 @@ for rota, pastas, arquivos in os.walk(diretorio_raiz):
             try:
                 with open(caminho_completo,'r',encoding="utf-8") as f:
                     conteudo=f.read()
-                    print(f"--- Conteúdo de: {nome_arquivo} ---")
-                    print(conteudo)
+                    dados_json= json.loads(conteudo)
+                    planilhas=arquivos_csv.append()
+
+                    #print(f"--- Conteúdo de: {nome_arquivo} ---")
+                    #print(conteudo)
             except Exception as e:
                 print(f"errro ao ler {caminho_completo}:{e}")
 
@@ -47,11 +50,10 @@ for rota, pastas, arquivos in os.walk(diretorio_raiz):
 
 
 
-
+'''
 # Exibição dos Resultados
 print(f"Varredura concluída. Encontrados {len(arquivos_csv)} arquivos CSV.")
 print("-" * 30)
 for caminho in arquivos_csv:
     print(f"Localizado: {caminho}")
-
-        
+'''     
